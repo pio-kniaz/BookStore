@@ -1,0 +1,7 @@
+/* .card-body{
+	flex: none!important;
+	padding: 0!important;
+} */
+.card-image img{
+	max-height: 350px!important;
+}
