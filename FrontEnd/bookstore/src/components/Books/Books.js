@@ -12,6 +12,7 @@ class Books extends React.Component{
 		const booksList = data.map((elem,index)=>{
 			return(
 				<Col
+					key={index}
 					l={4}
 					m={6}
 					s={12}
