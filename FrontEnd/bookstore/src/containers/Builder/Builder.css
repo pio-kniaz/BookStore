@@ -1,0 +1,13 @@
+.btn__add{
+	background: #1a1a1a;
+}
+.btn__add:hover{
+	background: #bbc;
+	color: black;
+	font-weight: bold;
+}
+.btn__add:focus{
+	background: #bbc;
+	color: black;
+	font-weight: bold;
+}

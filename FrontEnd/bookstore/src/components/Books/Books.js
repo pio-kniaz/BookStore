@@ -13,7 +13,7 @@ class Books extends React.Component{
 			return(
 				<Col
 					key={index}
-					l={4}
+					l={6}
 					m={6}
 					s={12}
 					 className='grid-example'
@@ -23,37 +23,18 @@ class Books extends React.Component{
 						 	className='blue cardd' waves='light' icon='delete'
 							tooltip="Usun Wybrana ksiazke"
 						 />}
+						 	style={{
+								backgroundImage: `url(${elem.image})`
+							}}
 							key={index}
 							header={<CardTitle reveal
-							image={elem.image}
+							// image={elem.image}
 							waves='light'/>}
 							title={elem.title}
 							reveal={<b>{elem.description}</b>}
 							>
-
-								 {/* <p><a href="#">This is a link</a></p> */}
 							</Card>
 				</Col>
-				//
-				// <div
-				// 	key={index}
-				// 	 className="card col-lg-4 sm-12">
-				// 	 <div className="card">
-				// 			<div className="card-image waves-effect waves-block waves-light">
-				// 				<img className="activator" src={elem.image}/>
-				// 			</div>
-				// 			<div className="card-content">
-				// 				<span className="card-title activator grey-text text-darken-4">{elem.title} <i className="material-icons right">more_vert</i></span>
-				// 				{/* <p><a href="#">This is a link</a></p> */}
-				// 				{elem.name}
-				// 			</div>
-				// 			<div className="card-reveal">
-				// 				<span className="card-title grey-text text-darken-4">Card Title <i className="material-icons right">close</i></span>
-				// 				<p>{elem.description}</p>
-				// 					<button onClick={this.props.deleteHandler.bind(this,elem)}>Usun</button>
-				// 			</div>
-				// 		</div>
-				// 	</div>
 			)
 		})
 		return(

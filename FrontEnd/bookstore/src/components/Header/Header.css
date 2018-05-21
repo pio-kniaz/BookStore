@@ -1,0 +1,23 @@
+.navbar{
+	background: #1a1a1a;
+}
+.navbar__about a {
+	padding: 0;
+}
+.navbar__about a div {
+	padding: 0;
+	margin-left: 10px;
+}
+.btn__action{
+	background-color: #bbc;
+	color: black;
+	font-weight: bold;
+}
+.btn__action:hover{
+	background-color: #1a1a1a;
+	color: #bbc;
+}
+.btn__action:focus{
+	background-color: #1a1a1a;
+	color: #bbc;
+}

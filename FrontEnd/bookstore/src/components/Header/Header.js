@@ -1,13 +1,25 @@
 import React from 'react';
-import { Navbar, NavItem,CardTitle, Row, Col,Modal,Icon } from 'react-materialize';
-
+import { Navbar, NavItem,CardTitle, Row, Col,Modal,Icon,Button } from 'react-materialize';
+import "./Header.css"
 const Header = (props)=>{
 	return(
-		<Navbar brand='logo' right>
-		  <NavItem href='get-started.html'><Icon>search</Icon></NavItem>
-		  <NavItem href='get-started.html'><Icon>view_module</Icon></NavItem>
-		  <NavItem href='get-started.html'><Icon>refresh</Icon></NavItem>
-		  <NavItem href='get-started.html'><Icon>more_vert</Icon></NavItem>
+		<Navbar
+			className="navbar"
+			href={false}
+			brand='Book Store App' left fixed>
+		  <NavItem
+				className="navbar__about"
+				href={false}
+				>
+				<Modal
+				  header='Book Store Application'
+				  bottomSheet
+				  trigger={<Button
+						className="navbar__btn btn__action"
+						>About Application</Button>}>
+						An application, which would help me to manage all the books,that i have already read.
+				</Modal>
+			</NavItem>
 		</Navbar>
 	)
 }

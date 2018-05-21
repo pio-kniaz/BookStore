@@ -3,7 +3,8 @@ import axios from 'axios';
 import Header from "../../components/Header/Header";
 import Books from '../../components/Books/Books';
 import Form from "../../components/Form/Form";
-import { Button, Card, Row, Col } from 'react-materialize';
+import { Button, Card, Row, Col,Icon,Modal} from 'react-materialize';
+import "./Builder.css"
 class Builder extends React.Component {
 	constructor(props){
 		super(props)
@@ -13,24 +14,27 @@ class Builder extends React.Component {
 			image:'',
 			rating:'',
 			description:'',
+			modalOpen:""
 		}
 	}
 	componentDidMount(){
 		axios.get(`http://localhost/BookStore/BackEnd/index.php/Books/books_api`)
 	.then(response => {
-		console.log(response.data.books);
+		// console.log(response.data.books);
 		this.setState({
 			books:response.data.books
 		})
 	})
 	}
 	handeSubmit =()=>{
-		alert(this.state.title)
+		// alert(this.state.title)
+		alert('test')
 	}
 
 	onChange = (e) =>{
 		this.setState({
-			[e.target.name]:e.target.value})
+			modalOpen:true,
+			[e.target.name]:e.target.value}	)
 	}
 
 	//
@@ -48,27 +52,25 @@ class Builder extends React.Component {
 			 			 console.log(response.data.books);
 			 			 this.setState({
 			 				 books:response.data.books,
+							 title:'',
+							 image:'',
+							 rating:'',
+							 description:'',
 			 			 })
-			 	 }, 2000);
+			 	 }, 2000)
+				 .then(()=>{
+					 this.setState({
+						 modalOpen:false
+					 })
+				 })
 			 })
 		 })
    }
-	//
-
-	// addHandler=(e)=>{
-	// 	e.preventDefault();
-	// 	axios.post('http://localhost/BookStore/BackEnd/index.php/Books/create', {
-  //   headers: { title: "Bearer " }})
-	// 	.then((response)=>{
-	// 		console.log(response);
-	// 	})
-	// 	.catch(error => console.log(error))
-	// }
 
 	deleteHandler =(itemToDelete) =>{
 		axios.delete(`http://localhost/BookStore/BackEnd/index.php/Books/delete/${itemToDelete.id}`)
 	.then(response => {
-		console.log(response.data.books);
+		// console.log(response.data.books);
 		let newsBooks = this.state.books.filter((elem)=>{
 			return elem!==itemToDelete;
 		})
@@ -82,23 +84,33 @@ class Builder extends React.Component {
 		return(
 			<div>
 				<Header/>
+				<Modal
+					open={this.state.modalOpen}
+				  header='Add Book'
+				  trigger={<Button
+						className="btn__add"
+						style={{
+							marginTop:'10px',
+							marginBottom:'15px'
+						}}
+						onClick={this.handeSubmit}
+						waves='light'>ADD Book<Icon right>add_box</Icon></Button>}>
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" name="title" placeholder="Title" required value={this.state.title} onChange={this.onChange}/>
+						<input type="text" name="description" placeholder="Description" required value={this.state.description} onChange={this.onChange}/>
+						<input type="text" name="image" placeholder="Put Your Image src here" required value={this.state.image} onChange={this.onChange}/>
+						<input type="text" name="rating" placeholder="rating" required value={this.state.rating} onChange={this.onChange}/>
+						<button>Send data!</button>
+					</form>
+				</Modal>
 				<Books
 					 data={this.state.books}
 					 deleteHandler={this.deleteHandler}
-
 				/>
 				<div style={{
 					width:'400px',
 					margin:'auto'
 				}}>
-
-				<form onSubmit={this.handleSubmit}>
-					<input type="text" name="title" value={this.state.title} onChange={this.onChange}/>
-					<input type="text" name="description" value={this.state.description} onChange={this.onChange}/>
-					<input type="text" name="image" value={this.state.image} onChange={this.onChange}/>
-					<input type="text" name="rating" value={this.state.rating} onChange={this.onChange}/>
-					<button>Send data!</button>
-				</form>
 			</div>
 
 			</div>
