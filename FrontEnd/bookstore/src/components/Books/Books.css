@@ -20,6 +20,10 @@
 	left: 0;
 	right: 0;
 }
+.card-reveal > div > b {
+	padding-top: 35px!important;
+	display: block!important;
+}
 .card .card-content .card-title{
 	color: white!important;
 }
@@ -31,4 +35,9 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+.rating {
+	display: block;
+	font-weight: bold;
+	font-size: 8em;
 }
