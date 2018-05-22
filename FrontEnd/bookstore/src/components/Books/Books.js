@@ -31,7 +31,15 @@ class Books extends React.Component{
 							// image={elem.image}
 							waves='light'/>}
 							title={elem.title}
-							reveal={<b>{elem.description}</b>}
+							reveal={
+								<div>
+									<b>{elem.description}</b>
+									<span
+										className="rating"
+										>{elem.rating}</span>
+								</div>
+							}
+
 							>
 							</Card>
 				</Col>

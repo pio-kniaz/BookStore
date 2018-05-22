@@ -11,3 +11,16 @@
 	color: black;
 	font-weight: bold;
 }
+
+.add__book{
+	background: #1a1a1a;
+	padding: 9px 23px;
+	color: white;
+	font-weight: bold;
+}
+.add__book:focus{
+	background: #1a1a1a;
+	padding: 10px 25px;
+	color: white;
+	font-weight: bold;
+}

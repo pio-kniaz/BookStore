@@ -18,7 +18,8 @@ class Builder extends React.Component {
 		}
 	}
 	componentDidMount(){
-		axios.get(`http://localhost/BookStore/BackEnd/index.php/Books/books_api`)
+		axios.get(`http://book-store.sknkonsultinguit.pl/backend/index.php/Books/books_api`)
+		// axios.get(`http://localhost/BookStore/BackEnd/index.php/Books/books_api`)
 	.then(response => {
 		// console.log(response.data.books);
 		this.setState({
@@ -41,13 +42,13 @@ class Builder extends React.Component {
 	handleSubmit=(event) =>{
      event.preventDefault();
      const data = new FormData(event.target);
-     fetch('http://localhost/BookStore/BackEnd/index.php/Books/create', {
+     fetch('http://book-store.sknkonsultinguit.pl/backend/index.php/Books/create', {
        method: 'POST',
        body: data,
      }).then(()=>{
 
 			 	 setTimeout( ()=> {
-			 		 axios.get(`http://localhost/BookStore/BackEnd/index.php/Books/books_api`)
+			 		 axios.get(`http://book-store.sknkonsultinguit.pl/backend/index.php/Books/books_api`)
 			 		 .then(response => {
 			 			 console.log(response.data.books);
 			 			 this.setState({
@@ -68,7 +69,7 @@ class Builder extends React.Component {
    }
 
 	deleteHandler =(itemToDelete) =>{
-		axios.delete(`http://localhost/BookStore/BackEnd/index.php/Books/delete/${itemToDelete.id}`)
+		axios.delete(`http://book-store.sknkonsultinguit.pl/backend/index.php/Books/delete/${itemToDelete.id}`)
 	.then(response => {
 		// console.log(response.data.books);
 		let newsBooks = this.state.books.filter((elem)=>{
@@ -100,7 +101,7 @@ class Builder extends React.Component {
 						<input type="text" name="description" placeholder="Description" required value={this.state.description} onChange={this.onChange}/>
 						<input type="text" name="image" placeholder="Put Your Image src here" required value={this.state.image} onChange={this.onChange}/>
 						<input type="text" name="rating" placeholder="rating" required value={this.state.rating} onChange={this.onChange}/>
-						<button>Send data!</button>
+						<button className="add__book">Add Book</button>
 					</form>
 				</Modal>
 				<Books
