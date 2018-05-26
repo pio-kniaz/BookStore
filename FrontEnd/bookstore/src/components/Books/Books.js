@@ -1,11 +1,8 @@
 import React from 'react';
 import "./Books.css"
 import Book from "./Book/Book"
-import { Button, Card,CardTitle, Row, Col,Modal,Icon , T} from 'react-materialize';
+import { Button, Card, Row, Col} from 'react-materialize';
 class Books extends React.Component{
-	constructor(props) {
-		super(props)
-	}
 	render(){
 		const {data}=this.props
 		console.log('[Books Component-->]',data);
@@ -19,7 +16,8 @@ class Books extends React.Component{
 					 className='grid-example'
 					>
 						<Card
-							actions={	<Button	onClick={this.props.deleteHandler.bind(this,elem)}
+							actions={	<Button
+							onClick={this.props.deleteHandler.bind(this,elem)}
 						 	className='blue cardd' waves='light' icon='delete'
 							tooltip="Usun Wybrana ksiazke"
 						 />}
@@ -27,8 +25,7 @@ class Books extends React.Component{
 								backgroundImage: `url(${elem.image})`
 							}}
 							key={index}
-							header={<CardTitle reveal
-							// image={elem.image}
+							header={<div
 							waves='light'/>}
 							title={elem.title}
 							reveal={
@@ -39,7 +36,6 @@ class Books extends React.Component{
 										>{elem.rating}</span>
 								</div>
 							}
-
 							>
 							</Card>
 				</Col>
