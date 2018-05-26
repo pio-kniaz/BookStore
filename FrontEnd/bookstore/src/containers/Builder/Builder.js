@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Header from "../../components/Header/Header";
 import Books from '../../components/Books/Books';
-// import Form from "../../components/Form/Form";
+import Form from "../../components/Form/Form";
 import { Button, Icon,Modal} from 'react-materialize';
 import "./Builder.css"
 class Builder extends React.Component {
@@ -85,26 +85,23 @@ class Builder extends React.Component {
 		return(
 			<div>
 				<Header/>
-				<Modal
-					// open={true}
-					open={this.state.modalOpen}
-				  header='Add Book'
-				  trigger={<Button
-						className="btn__add"
-						style={{
-							marginTop:'10px',
-							marginBottom:'15px'
-						}}
-						onClick={this.handeSubmit}
-						waves='light'>ADD Book<Icon right>add_box</Icon></Button>}>
-					<form onSubmit={this.handleSubmit}>
-						<input type="text" name="title" placeholder="Title" required value={this.state.title} onChange={this.onChange}/>
-						<input type="text" name="description" placeholder="Description" required value={this.state.description} onChange={this.onChange}/>
-						<input type="text" name="image" placeholder="Put Your Image src here" required value={this.state.image} onChange={this.onChange}/>
-						<input type="number" min='1' max='5' name="rating" placeholder="rating" required value={this.state.rating} onChange={this.onChange}/>
-						<button className="add__book">Add Book</button>
-					</form>
-				</Modal>
+					<Modal
+						// open={true}
+						open={this.state.modalOpen}
+					  header='Add Book'
+					  trigger={<Button
+							className="btn__add"
+							style={{
+								marginTop:'10px',
+								marginBottom:'15px'
+							}}
+							onClick={this.handeSubmit}
+							waves='light'>ADD Book<Icon right>add_box</Icon></Button>}>
+						<Form handleSubmit={this.handleSubmit}
+							title={this.state.title}
+							changeValue ={this.onChange}
+						/>
+					</Modal>
 				<Books
 					 data={this.state.books}
 					 deleteHandler={this.deleteHandler}
@@ -114,7 +111,6 @@ class Builder extends React.Component {
 					margin:'auto'
 				}}>
 			</div>
-
 			</div>
 		)
 	}
