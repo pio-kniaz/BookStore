@@ -2,10 +2,10 @@ import React from 'react';
 import "./Books.css"
 import Book from "./Book/Book"
 import { Button, Card, Row, Col} from 'react-materialize';
+import ReactStars from 'react-stars';
 class Books extends React.Component{
 	render(){
 		const {data}=this.props
-		console.log('[Books Component-->]',data);
 		const booksList = data.map((elem,index)=>{
 			return(
 				<Col
@@ -34,6 +34,13 @@ class Books extends React.Component{
 									<span
 										className="rating"
 										>{elem.rating}</span>
+										<ReactStars
+											className="stars"
+											edit={false}
+										  count={5}
+											value={elem.rating*1}
+										  size={37}
+										  color2={'#ffd700'} />
 								</div>
 							}
 							>
