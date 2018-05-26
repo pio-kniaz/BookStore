@@ -1,15 +1,15 @@
 import React from 'react';
-import { Navbar, NavItem,CardTitle, Row, Col,Modal,Icon,Button } from 'react-materialize';
+import { Navbar, NavItem,Modal,Button } from 'react-materialize';
 import "./Header.css"
 const Header = (props)=>{
 	return(
 		<Navbar
 			className="navbar"
-			href={false}
+			href='false'
 			brand='Book Store App' left fixed>
 		  <NavItem
 				className="navbar__about"
-				href={false}
+				href="false"
 				>
 				<Modal
 				  header='Book Store Application'
