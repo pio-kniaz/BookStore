@@ -105,12 +105,14 @@ class Builder extends React.Component {
 				<Books
 					 data={this.state.books}
 					 deleteHandler={this.deleteHandler}
+
 				/>
 				<div style={{
 					width:'400px',
 					margin:'auto'
 				}}>
 			</div>
+
 			</div>
 		)
 	}

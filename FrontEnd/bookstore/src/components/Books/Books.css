@@ -41,3 +41,9 @@
 	font-weight: bold;
 	font-size: 8em;
 }
+.stars{
+	margin: auto;
+	margin-top: -40px;
+	text-align: center;
+	display: inline-block;
+}
