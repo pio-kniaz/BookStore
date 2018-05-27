@@ -2,6 +2,10 @@
 	background: #1a1a1a;
 	z-index: 100;
 }
+.navbar__about{
+	position: absolute;
+	left: 10px;
+}
 .navbar__about a {
 	padding: 0;
 }
@@ -21,4 +25,9 @@
 .btn__action:focus{
 	background-color: #1a1a1a;
 	color: #bbc;
+}
+@media (max-width:992px) {
+	#sidenav-overlay{
+		z-index: 0!important;
+	}
 }

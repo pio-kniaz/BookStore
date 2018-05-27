@@ -54,9 +54,9 @@ class Builder extends React.Component {
 			 			 this.setState({
 			 				 books:response.data.books,
 							 title:'',
+							 description:'',
 							 image:'',
 							 rating:'',
-							 description:'',
 			 			 })
 			 	 }, 2000)
 				 .then(()=>{
@@ -99,6 +99,9 @@ class Builder extends React.Component {
 							waves='light'>ADD Book<Icon right>add_box</Icon></Button>}>
 						<Form handleSubmit={this.handleSubmit}
 							title={this.state.title}
+							description={this.state.description}
+							image={this.state.image}
+							rating={this.state.rating}
 							changeValue ={this.onChange}
 						/>
 					</Modal>
