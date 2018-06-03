@@ -16,11 +16,11 @@ class Books extends React.Component{
 					 className='grid-example'
 					>
 						<Card
-							actions={	<Button
+							actions={this.props.delOption ? <Button
 							onClick={this.props.deleteHandler.bind(this,elem)}
 						 	className='blue cardd' waves='light' icon='delete'
 							tooltip="Usun Wybrana ksiazke"
-						 />}
+						/>:null}
 						 	style={{
 								backgroundImage: `url(${elem.image})`
 							}}
@@ -31,6 +31,10 @@ class Books extends React.Component{
 							reveal={
 								<div>
 									<b>{elem.description}</b>
+									<div>
+										<h5>Category</h5>
+										<b>{elem.category}</b>
+									</div>
 									<span
 										className="rating"
 										>{elem.rating}</span>

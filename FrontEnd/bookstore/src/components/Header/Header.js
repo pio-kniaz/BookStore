@@ -23,7 +23,13 @@ const Header = props => {
         <Link to="/">Books</Link>
       </li>
       <li>
-        <Link to="/films">Films</Link>
+        <Link to="/thriller">Thriller</Link>
+      </li>
+      <li>
+        <Link to="/selfDev">Self-development</Link>
+      </li>
+      <li>
+        <Link to="/biography">Biography</Link>
       </li>
     </Navbar>
   );
