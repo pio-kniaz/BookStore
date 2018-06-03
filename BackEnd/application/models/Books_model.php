@@ -24,7 +24,8 @@
 					'title'=>$this->input->post('title'),
 					'description'=>$this->input->post('description'),
 					'image'=>$this->input->post('image'),
-					'rating'=>$this->input->post('rating')
+					'rating'=>$this->input->post('rating'),
+					'category'=>$this->input->post('category')
 				);
 				return $this->db->insert('mybooks',$data);
 			}

@@ -1,6 +1,8 @@
 import React from "react";
 import BooksBuilder from "./BooksBuilder/BooksBuilder";
-import FilmsBuilder from "./FilmsBuilder/FilmsBuilder";
+import SelfDev from "./SelfDev/SelfDev";
+import Thriller from "./Thriller/Thriller";
+import Biography from "./Biography/Biography";
 import Header from "../../components/Header/Header";
 import { Route } from "react-router-dom";
 class Builder extends React.Component {
@@ -8,12 +10,10 @@ class Builder extends React.Component {
     return (
       <div>
         <Header />
-				<Route
-				path="/" exact component={BooksBuilder}
-				/>
-				<Route
-				path="/films" exact component={FilmsBuilder}
-				/>
+        <Route path="/" exact component={BooksBuilder} />
+        <Route path="/thriller" exact component={Thriller} />
+        <Route path="/selfDev" exact component={SelfDev} />
+        <Route path="/biography" exact component={Biography} />
       </div>
     );
   }
