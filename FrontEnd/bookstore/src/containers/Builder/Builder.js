@@ -4,16 +4,19 @@ import SelfDev from "./SelfDev/SelfDev";
 import Thriller from "./Thriller/Thriller";
 import Biography from "./Biography/Biography";
 import Header from "../../components/Header/Header";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 class Builder extends React.Component {
   render() {
     return (
       <div>
         <Header />
-        <Route path="/" exact component={BooksBuilder} />
-        <Route path="/thriller" exact component={Thriller} />
-        <Route path="/selfDev" exact component={SelfDev} />
-        <Route path="/biography" exact component={Biography} />
+        <Switch>
+          <Route path="/" exact component={BooksBuilder} />
+          <Route path="/thriller" exact component={Thriller} />
+          <Route path="/selfDev" exact component={SelfDev} />
+          <Route path="/biography" exact component={Biography} />
+          <Route component={BooksBuilder} />
+        </Switch>
       </div>
     );
   }
